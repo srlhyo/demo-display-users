@@ -1,3 +1,22 @@
+<?php
+
+session_start();
+
+// check if users data exists in session
+if(isset($_SESSION["users"])) {
+  $users = $_SESSION["users"];
+} else {
+  $users = [];
+}
+
+if(isset($_SESSION["errors"])) {
+  $errors = $_SESSION["errors"];
+} else {
+  $errors = [];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +28,7 @@
 <body>
     <div class="container">
         <h1>Add Users</h1>
-        <form action="" method="get" class="user_details">
+        <form action="add_users.php" method="post" class="user_details">
             <div class="details">
               <label for="name">Enter your name: </label>
               <input class="user_name" type="text" name="name" id="name" required />
@@ -25,10 +44,21 @@
             </div>
 
           </form>
+          <?php if(!empty($errors)) :?>
+            <div class="displayErrors">
+              <ul>
+                <?php foreach($errors as $error) :?>
+                  <li><?php echo $error; ?></li>
+                <?php endforeach ?>
+              </ul>
+            </div>
+          <?php endif ?>
           <h2>Display Users</h2>
           <div class="displayResult">
             <ul class="result">
-                <li>Jonny</li>
+              <?php foreach($users as $user) :?>
+                <li><?= $user["name"] ?></li>
+              <?php endforeach ?>
             </ul>
           </div>
     </div>
