@@ -3,31 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Users pages</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Add Users</h1>
-        <form action="" method="get" class="form-example">
-            <div class="form-example">
+        <form action="" method="get" class="user_details">
+            <div class="details">
               <label for="name">Enter your name: </label>
-              <input type="text" name="name" id="name" required />
+              <input class="user_name" type="text" name="name" id="name" required />
             </div>
-            <div class="form-example">
-              <label for="email">Enter your email: </label>
+
+            <div class="details">
+              <label class="user_email" for="email">Enter your email: </label>
               <input type="email" name="email" id="email" required />
             </div>
-            <div class="form-example">
-              <input type="submit" value="submit" />
+
+            <div class="details">
+              <input class="submit_details" type="submit" value="submit" />
             </div>
+
           </form>
           <h2>Display Users</h2>
           <div class="displayResult">
-            <ul>
+            <ul class="result">
                 <li>Jonny</li>
             </ul>
           </div>
     </div>
+    <script src="script.js" ></script>
 </body>
 </html>
